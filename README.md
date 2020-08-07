@@ -1,3 +1,10 @@
+[![Build Status](https://travis-ci.com/ffabiorj/voting_app.svg?branch=master)](https://travis-ci.com/ffabiorj/voting_app)
+
+
+[![codecov](https://codecov.io/gh/ffabiorj/voting_app/branch/master/graph/badge.svg)](https://codecov.io/gh/ffabiorj/voting_app)
+
+
+
 # Voting App
 
 

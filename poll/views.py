@@ -1,5 +1,10 @@
-from django.http import HttpResponse
+from django.shortcuts import render
+from poll.models import Poll
 
 
 def home(request):
-    return HttpResponse('Hello world')
+    polls = Poll.objects.all()
+    context = {
+        "polls": polls
+    }
+    return render(request, 'index.html', context)
