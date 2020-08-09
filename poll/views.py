@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from poll.models import Poll
 from poll.forms import CreatePollForm
 from django.http import HttpResponse
-
+from django.contrib import messages
 
 def home(request):
     polls = Poll.objects.all()
@@ -16,6 +16,7 @@ def create(request):
 
         if form.is_valid():
             form.save()
+            messages.success(request, 'The poll was created with success!')
             return redirect("home")
     else:
         form = CreatePollForm()
@@ -40,7 +41,7 @@ def vote(request, pk):
             return HttpResponse(400, "Invalid form")
 
         poll.save()
-
+        messages.success(request, "Your vote was computeded with success!")
         return redirect("home")
 
     context = {"poll": poll}
