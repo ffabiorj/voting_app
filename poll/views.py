@@ -28,22 +28,27 @@ def vote(request, pk):
     poll = get_object_or_404(Poll, pk=pk)
 
     if request.method == "POST":
-        selected_option = request.POST['poll']
+        selected_option = request.POST["poll"]
         print(selected_option)
-        if selected_option == 'option1':
+        if selected_option == "option1":
             poll.option_one_count += 1
-        elif selected_option == 'option2':
+        elif selected_option == "option2":
             poll.option2_two_count += 1
-        elif selected_option == 'option3':
+        elif selected_option == "option3":
             poll.option2_three_count
         else:
-            return HttpResponse(400, 'Invalid form')
+            return HttpResponse(400, "Invalid form")
 
         poll.save()
 
-        return redirect('home')
+        return redirect("home")
 
-    context = {
-        'poll': poll
-    }
-    return render(request, 'vote.html', context)
+    context = {"poll": poll}
+    return render(request, "vote.html", context)
+
+
+def result(request, pk):
+    poll = get_object_or_404(Poll, pk=pk)
+
+    context = {"poll": poll}
+    return render(request, "result.html", context)
