@@ -4,6 +4,7 @@ from poll.forms import CreatePollForm
 from django.http import HttpResponse
 from django.contrib import messages
 
+
 def home(request):
     polls = Poll.objects.all()
     context = {"polls": polls}
@@ -16,7 +17,7 @@ def create(request):
 
         if form.is_valid():
             form.save()
-            messages.success(request, 'The poll was created with success!')
+            messages.success(request, "The poll was created with success!")
             return redirect("home")
     else:
         form = CreatePollForm()
@@ -34,14 +35,14 @@ def vote(request, pk):
         if selected_option == "option1":
             poll.option_one_count += 1
         elif selected_option == "option2":
-            poll.option2_two_count += 1
+            poll.option_two_count += 1
         elif selected_option == "option3":
-            poll.option2_three_count
+            poll.option_three_count
         else:
             return HttpResponse(400, "Invalid form")
 
         poll.save()
-        messages.success(request, "Your vote was computeded with success!")
+        messages.success(request, "Your vote was computed with success!")
         return redirect("home")
 
     context = {"poll": poll}
