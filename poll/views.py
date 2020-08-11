@@ -31,7 +31,6 @@ def vote(request, pk):
 
     if request.method == "POST":
         selected_option = request.POST["poll"]
-        print(selected_option)
         if selected_option == "option1":
             poll.option_one_count += 1
         elif selected_option == "option2":
