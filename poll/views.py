@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from poll.models import Poll
 from poll.forms import CreatePollForm
-from django.http import HttpResponse
+from django.http import HttpResponseBadRequest
 from django.contrib import messages
 
 
@@ -38,7 +38,7 @@ def vote(request, pk):
         elif selected_option == "option3":
             poll.option_three_count
         else:
-            return HttpResponse(400, "Invalid form")
+            return HttpResponseBadRequest("Invalid form")
 
         poll.save()
         messages.success(request, "Your vote was computed with success!")
