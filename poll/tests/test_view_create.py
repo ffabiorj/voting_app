@@ -3,7 +3,7 @@ from django.urls import reverse
 
 
 @pytest.mark.django_db
-def test_post_status_200(client):
+def test_create_status_200(client):
     data = {
         "question": "teste",
         "option_one": "teste1",
