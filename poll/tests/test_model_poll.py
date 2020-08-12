@@ -38,4 +38,4 @@ def test_poll_str():
         option_three="Mommy",
     )
     expect = Poll.objects.first()
-    assert expect.__str__() == 'What is the best test for python?'
+    assert expect.__str__() == "What is the best test for python?"

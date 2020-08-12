@@ -1,4 +1,6 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} 
+{% block title %} Available Polls {% endblock %}
+{% block content %}
 <div class="row">
   <div class="col-lg-8 col-lg-offset-2">
     <div class="panel panel-default">
@@ -10,9 +12,9 @@
         {% for poll in polls %}
         <li class="list-group-item">
           <strong>{{ poll.question }}</strong>
-          <span class="pull-right">
-            <a href="#" class="btn btn-info btn-xs">Vote</a> &nbsp;
-            <a href="#" class="btn btn-warning btn-xs">View Result</a> &nbsp;
+          <span class="pull-right right">
+            <a href="{% url 'vote' poll.id %}" class="btn btn-info btn-xs">Vote</a> &nbsp;
+            <a href="{% url 'result' poll.id %}" class="btn btn-warning btn-xs">View Result</a> &nbsp;
           </span>
         </li>
         {% endfor %}
